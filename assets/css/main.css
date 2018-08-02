@@ -120,6 +120,22 @@ abbr:hover {
 strong {
     font-weight: 600;
 }
+pre, code {
+    font-family: "Roboto Mono", sans-serif;
+}
+code {
+    font-size: 0.9em;
+}
+pre {
+    font-size: 1.1em;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px dashed #cccccc;
+    background: #fafafa;
+    max-height: 300px;
+    overflow: auto;
+    max-width: 100%;
+}
 /* end css reset */
 
 @media all {
@@ -507,7 +523,7 @@ strong {
     }
     #reply-title > a {
         margin-right: 10px;
-        padding-right: 10px;
+        padding-right: 15px;
         border-right: 2px solid #cccccc;
     }
     #reply-title #cancel-comment-reply-link {
@@ -641,6 +657,9 @@ strong {
         font-size: 1.5em;
         line-height: 1.5em;
     }
+    pre {
+        font-size: 1.35em;
+    }
     .post ul {
         font-size: 1.5em;
         line-height: 1em;
@@ -736,6 +755,9 @@ strong {
         font-size: 1.5em;
         line-height: 1.5em;
     }
+    pre {
+        font-size: 1.05em;
+    }
     .post ul {
         font-size: 1.5em;
         line-height: 1em;
@@ -751,9 +773,9 @@ strong {
 /* for iPhone-sized devices */
 @media only screen and (max-device-width: 480px) {
     .sm-hidden {
-        display: none;
+        display: none !important;
     }
-    input:not([type=submit]):not([type=checkbox]):not([type:radio]) {
+    input:not([type=submit]):not([type=checkbox]):not([type=radio]) {
         width: 100%;
         margin-bottom: 5px;
     }
