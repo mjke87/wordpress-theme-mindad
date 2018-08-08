@@ -76,6 +76,7 @@ Simply copy any of these files to your child themes root folder and adjust as ne
 ### Filters
 Use these filters to disable certain WordPress theme functions that are active by default.
 
+- `add_filter('mindad_clean_head', '__return_false');` — Disable the cleaning of the HTML head
 - `add_filter('mindad_add_readmore_link', '__return_false');` — Disable the read-more link after excerpts
 - `add_filter('mindad_disable_jquery', '__return_false');` — Avoid disabling jQuery
 - `add_filter('mindad_disable_emoji', '__return_false');` — Avoid disabling Emoji support

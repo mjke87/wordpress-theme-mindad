@@ -13,6 +13,15 @@ register_nav_menus(array(
 add_post_type_support('page', 'excerpt');
 
 /**
+ * Clean up head
+ */
+if (apply_filters('mindad_clean_head', true)) {
+    remove_action('wp_head', 'wp_generator');
+    remove_action('wp_head', 'wp_no_robots');
+    remove_action('wp_head', 'wp_shortlink_wp_head');
+}
+
+/**
  * Append read more link to post excerpts
  */
 if (apply_filters('mindad_add_readmore_link', true)) {
