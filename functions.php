@@ -15,28 +15,11 @@ add_post_type_support('page', 'excerpt');
 /**
  * Append read more link to post excerpts
  */
-
 if (apply_filters('mindad_add_readmore_link', true)) {
     add_filter('the_excerpt', function($excerpt) {
     	$link = '<a href="' . get_permalink() . '"><small>' . __('Read more &raquo;', 'mindad') . '</small></a>';
     	return str_replace('</p>', ' ' . $link . '</p>', $excerpt);
-    }, 10, 1);
-}
-
-/**
- * Years since shortcode
- */
-if (apply_filters('mindad_add_years_shortcode', true)) {
-    add_shortcode('years', function($atts) {
-    	$atts = shortcode_atts(['date' => null], $atts);
-    	$today = new DateTime();
-    	if ($atts['date']) {
-    		$date = new DateTime($atts['date']);
-    		$diff = $today->diff($date);
-    		return $diff->format('%y');
-    	}
-    	return $today->format('%y');
-    });
+    }, 15, 1);
 }
 
 /**
@@ -97,7 +80,7 @@ if (apply_filters('mindad_disable_embed', true)) {
 }
 
 /**
- * Fix comment reply functino if YOAST is installed.
+ * Fix comment reply function if YOAST is installed.
  */
 add_filter('wpseo_remove_reply_to_com', '__return_false');
 
