@@ -18,7 +18,7 @@
 
 	<?php foreach ($posts as $latest) : ?>
 
-		<h2><a href="<?php echo get_permalink($latest->ID) ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s'), strip_tags(esc_attr(get_the_title($latest->ID)))); ?>">
+		<h2><a href="<?php echo get_permalink($latest->ID) ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s', 'mindad'), strip_tags(esc_attr(get_the_title($latest->ID)))); ?>">
 			<?php echo get_the_title($latest->ID); ?>
 		</a></h2>
 
