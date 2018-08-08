@@ -13,6 +13,13 @@ register_nav_menus(array(
 add_post_type_support('page', 'excerpt');
 
 /**
+ * Enquees theme styles
+ */
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_style('mindad-main', get_template_directory_uri() . '/assets/css/main.css');
+});
+
+/**
  * Clean up head
  */
 if (apply_filters('mindad_clean_head', true)) {
