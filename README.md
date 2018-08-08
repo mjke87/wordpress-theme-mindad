@@ -43,12 +43,7 @@ define('GOOGLE_TAG_MANAGER', 'YOUR-CODE-HERE');
 ```
 
 ### Favicons
-The theme includes default favicons that you can replace with our own:
-1. Go to [RealFaviconGenerator](https://realfavicongenerator.net/) and follow the instructions of the website
-2. At the end you'll be able to download a zip file with all favicons and CSS defintions; unzip it somewhere
-3. Delete all contents in the theme folder `./assets/img` and replace with your newly generated favicons
-4. Usually this is it, if you need further fine-tuning check the file `header.php`, that's were all favicons get included; ajust it as needed
-
+If you wish to use a favicon for your site, simply follow the [instructions of WordPress](https://codex.wordpress.org/Creating_a_Favicon) itself or navigate directly to _Appearance > Customize > Site Identity > Site Icon_ if you're familiar with the process.
 
 ## Customization (optional)
 Be aware that further customization of this WordPress theme requires a certain level of programming.
