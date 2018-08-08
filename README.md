@@ -54,7 +54,7 @@ The theme includes default favicons that you can replace with our own:
 Be aware that further customization of this WordPress theme requires a certain level of programming.
 
 ### Child-Theme
-For further customization, such as styling, hooks and overriding templates, it is highly recommended to create a child theme first.
+For further customization, such as styling, hooks and overriding templates, it is highly recommended to create a [child theme](https://codex.wordpress.org/Child_Themes) first.
 
 ### Templates
 The mindad WordPress theme comes with some standard templates that you can override in your child theme.
@@ -76,8 +76,7 @@ Simply copy any of these files to your child themes root folder and adjust as ne
 ### Filters
 Use these filters to disable certain WordPress theme functions that are active by default.
 
-- `mindad_add_readmore_link` — Disable the read-more link after excerpts
-- `mindad_add_years_shortcode` — Disable the years shortcode
-- `mindad_disable_jquery` — Avoid disabling jQuery
-- `mindad_disable_emoji` — Avoid disabling Emoji support
-- `mindad_disable_embed` — Avoid disabling oEmbed support
+- `add_filter('mindad_add_readmore_link', '__return_false');` — Disable the read-more link after excerpts
+- `add_filter('mindad_disable_jquery', '__return_false');` — Avoid disabling jQuery
+- `add_filter('mindad_disable_emoji', '__return_false');` — Avoid disabling Emoji support
+- `add_filter('mindad_disable_embed', '__return_false');` — Avoid disabling oEmbed support
