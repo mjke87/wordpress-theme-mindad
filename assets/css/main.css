@@ -60,6 +60,7 @@ input, button, textarea {
     border: 1px solid #cccccc;
     box-sizing: border-box;
     outline: none;
+    min-height: 30px;
 }
 input[type=submit], button {
     text-transform: uppercase;
@@ -197,6 +198,121 @@ hr {
         -ms-transition: all 2s ease;
         -o-transition: all 2s ease;
         transition: all 2s ease;
+    }
+    .header-menu > label {
+        border: 1px solid #aaaaaa;
+        border-radius: 50%;
+        padding: 10px;
+        display: inline-block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+    }
+    .header-menu > label:hover {
+        border-color: #777777;
+    }
+    .header-menu > label:hover > .menu-line:nth-child(odd) {
+        margin-left: 0;
+        transition: margin-left 0.3s;
+    }
+    .header-menu > label:hover > .menu-line:nth-child(even) {
+        margin-left: 3px;
+        transition: margin-left 0.3s;
+    }
+    .header-menu .menu-trigger {
+        display: none;
+    }
+    .header-menu .menu-line {
+        width: 20px;
+        height: 2px;
+        background: #aaaaaa;
+        display: block;
+        margin: 4px 0;
+        transition: margin-left 0.3s;
+    }
+    .header-menu .menu-line:nth-child(odd)  {
+        margin-left: 3px;
+    }
+    .header-menu > label:hover > .menu-line {
+        background: #777777;
+    }
+    .header-menu > label > div {
+        overflow: hidden;
+        height: 0;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        background: #f2f2f2;
+        transition: height 0.5s;
+        cursor: initial;
+    }
+    .header-menu > label > div:before {
+        content: "×";
+        font-size: 45px;
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        height: auto;
+        width: auto;
+        color: #777777;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .header-menu > label > div:before:hover {
+        color: #999999;
+        transform: rotate(90deg);
+        transition: all 0.2s;
+    }
+    .header-menu .menu-trigger:checked + div {
+        width: 100%;
+        height: 100%;
+        transition: height 0.5s;
+    }
+    .header-menu > label > div > .menu {
+        font-size: 1.5em;
+        padding-top: 50px;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    .header-menu > label > div > .menu li {
+        text-align: center;
+    }
+    .header-menu > label > div > .menu li > a {
+        font-family: "Roboto Condensed", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin: 5px 0;
+        padding: 5px 0;
+        display: block;
+        transition: all 0.2s;
+    }
+    .header-menu > label > div > .menu li > a {
+        border-bottom: 1px solid #e8e8e8;
+    }
+    .header-menu > label > div > .menu li > a:after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 0;
+        background: var(--accent-color);
+        transition: width 0.2s;
+        margin: 0 auto;
+    }
+    .header-menu > label > div > .menu li > a:hover:after {
+        width: 50px;
+        transition: width 0.2s;
+    }
+    .header-menu > label > div > .menu .sub-menu {
+        font-size: 0.8em;
+    }
+    .header-menu > label > div > .menu .sub-menu li > a {
+        color: #666666;
     }
     .container {
         overflow: hidden;
