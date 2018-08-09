@@ -24,7 +24,7 @@
 </head>
 <body <?php body_class(); ?>>
 
-    <?php do_action('wp_body'); ?>
+    <?php do_action('body_open'); ?>
 
 	<div class="container">
 		<div class="top">
