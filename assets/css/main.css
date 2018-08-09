@@ -43,9 +43,6 @@ blockquote:before, blockquote:after {
     content: '';
     content: none;
 }
-q {
-    /*font-family: 'Roboto Slab', serif;*/
-}
 q:before {
     content: "«";
 }
@@ -124,7 +121,8 @@ pre, code {
     font-family: "Roboto Mono", sans-serif;
 }
 code {
-    font-size: 0.9em;
+    font-size: 0.85em;
+	background: #f2f2f2;
 }
 pre {
     font-size: 1.1em;
@@ -136,8 +134,32 @@ pre {
     overflow: auto;
     max-width: 100%;
 }
+pre code {
+	background: none;
+}
 mark {
-    background: rgba(86,164,159,0.4)
+    background: none;
+    position: relative;
+}
+mark:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .4;
+    z-index: -1;
+    background: #cccccc;
+    background: var(--accent-color);
+}
+hr {
+    border: none;
+    height: 1px;
+    width: 100%;
+    display: block;
+    background: #f2f2f2;
+    margin: 2em 0;
 }
 /* end css reset */
 
@@ -209,7 +231,8 @@ mark {
         border-color: #c0c0c0;
     }
     #tagline {
-        color: #56a49f;
+        color: #cccccc;
+        color: var(--accent-color);
         font-family: 'Roboto Condensed', sans-serif;
     }
     /* post title */
@@ -287,7 +310,7 @@ mark {
         transition: all 2s ease;
     }
     h6 strong {
-        color: #56a49f;
+        color: #cccccc;
         font-weight: bold;
     }
     img {
@@ -401,7 +424,8 @@ mark {
         font-weight: bold;
     }
     .post blockquote {
-        border-left: 2px solid #a5abab;
+        border-left: 2px solid #cccccc;
+        border-left-color: var(--accent-color);
         margin: 1.8em .8em;
         padding: 0 1em 0 1em;
         font-size: 1.2em;
@@ -510,6 +534,7 @@ mark {
     .years .months .posts > li {
         display: inline-block;
         margin-bottom: 5px;
+        width: 100%;
     }
     /* post comments */
     #comments, #reply-title {

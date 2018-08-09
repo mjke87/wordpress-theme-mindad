@@ -9,6 +9,7 @@ The theme omits a lot of functions and focuses on providing a clean, speedy expe
 - No permanent search box
 - No emojis
 - No embeds
+- No JavaScript
 - No copyright
 
 A demo of the theme is available [here](https://mindad.ch).
@@ -71,8 +72,15 @@ Simply copy any of these files to your child themes root folder and adjust as ne
 ### Filters
 Use these filters to disable certain WordPress theme functions that are active by default.
 
-- `add_filter('mindad_clean_head', '__return_false');` — Disable the cleaning of the HTML head
-- `add_filter('mindad_add_readmore_link', '__return_false');` — Disable the read-more link after excerpts
-- `add_filter('mindad_disable_jquery', '__return_false');` — Avoid disabling jQuery
-- `add_filter('mindad_disable_emoji', '__return_false');` — Avoid disabling Emoji support
-- `add_filter('mindad_disable_embed', '__return_false');` — Avoid disabling oEmbed support
+- Change the accent color of the theme (default is `#56a49f`):
+  `add_filter('mindad_accent_color', function() { return '#123456'})`
+- Disable the cleaning of the HTML head:
+  `add_filter('mindad_clean_head', '__return_false');`
+- Disable the read-more link after excerpts:
+  `add_filter('mindad_add_readmore_link', '__return_false');`
+- Avoid disabling jQuery:
+  `add_filter('mindad_disable_jquery', '__return_false');`
+- Avoid disabling Emoji support:
+  `add_filter('mindad_disable_emoji', '__return_false');`
+- Avoid disabling oEmbed support:
+  `add_filter('mindad_disable_embed', '__return_false');`

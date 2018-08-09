@@ -20,6 +20,14 @@ add_action('wp_enqueue_scripts', function() {
 });
 
 /**
+ * Define accent color
+ */
+add_action('wp_head', function() {
+    $accent_color = apply_filters('mindad_accent_color', '#56a49f');
+    ?><style type="text/css">* {--accent-color: <?= $accent_color ?>;}</style><?php
+}, 10);
+
+/**
  * Clean up head
  */
 if (apply_filters('mindad_clean_head', true)) {
