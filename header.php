@@ -30,6 +30,19 @@
 		<div class="top">
 			<h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
 			<span id="tagline"><?php bloginfo('description'); ?></span>
+
 		</div>
+
+        <?php if (has_nav_menu('header_menu')) : ?>
+        <nav class="header-menu">
+            <label>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <input type="checkbox" class="menu-trigger" />
+                <?php wp_nav_menu('header_menu'); ?>
+            </label>
+        </nav>
+        <?php endif; ?>
 
 		<div class="content">
