@@ -1,6 +1,13 @@
 <?php
 
 /**
+ * Register header menu
+ */
+register_nav_menus(array(
+    'header_menu' => 'Header Menu'
+));
+
+/**
  * Register footer menu
  */
 register_nav_menus(array(
