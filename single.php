@@ -13,7 +13,7 @@
 
 		<h2><?php the_title(); ?></h2>
 
-		<article class="post">
+		<article <?php post_class('post'); ?>>
 
 			<?php the_content(); ?>
 
