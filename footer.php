@@ -9,13 +9,11 @@
 
 		</div>
 
+		<?php if (has_nav_menu('footer_menu')) : ?>
 		<div class="footer">
-
-			<?php if (has_nav_menu('footer_menu')) {
-				wp_nav_menu('footer_menu');
-			} ?>
-
+			<?php wp_nav_menu('footer_menu'); ?>
 		</div>
+		<?php endif; ?>
 
 	</div>
 
