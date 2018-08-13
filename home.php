@@ -20,6 +20,12 @@
         'posts_per_page' => -1
     ));
 
+	if (apply_filters('mindad_display_scheduled_for_admin', true)) {
+		if (current_user_can('administrator')) {
+			$args['post_status'] = 'publish,future';
+		}
+	}
+
     $all_posts = get_posts($args);
 
     $ordered_posts = array();
@@ -54,7 +60,9 @@
                       $last_day = $current_day;
                       ?>
                   </span>
-				  <a href="<?php echo get_permalink($single->ID); ?>"><?php echo get_the_title($single->ID); ?></a>
+				  <a href="<?php echo get_permalink($single->ID); ?>" <?php post_class(null, $single->ID); ?>>
+					  <?php echo get_the_title($single->ID); ?>
+				  </a>
                 </li>
 
               <?php endforeach; ?>
