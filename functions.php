@@ -55,7 +55,7 @@ if (apply_filters('mindad_add_readmore_link', true)) {
 }
 
 /**
- * Display scheduled posts for the admin user
+ * Change title of scheduled posts for the admin user
  */
 if (apply_filters('mindad_display_scheduled_for_admin', true)) {
     add_filter('the_title', function($title, $post_id) {
@@ -77,11 +77,9 @@ if (apply_filters('mindad_display_post_status_as_badges', true)) {
         $filter = function($format) {
             // Prepend badge tag
             $format = '<span class="badge">' . $format;
-
             // Replace colon with closin tag
             $pos = strpos($format, ':');
             $format = substr($format, 0, $pos) . '</span>' . substr($format, $pos + 1);
-
             return $format;
         };
         add_filter('protected_title_format', $filter, 10, 1);
@@ -157,9 +155,9 @@ if (apply_filters('mindad_disable_embed', true)) {
 }
 
 /**
- * Clean up body classes using a blacklist
+ * Clean up classes using a blacklist
  */
-add_filter('body_class', function ($wp_classes, $extra_classes) {
+function mindad_clean_classes($wp_classes, $extra_classes) {
 	$blacklist = apply_filters('mindad_body_class_blacklist', array(
 		'post-template-default',
 		'single-format-standard',
@@ -170,7 +168,12 @@ add_filter('body_class', function ($wp_classes, $extra_classes) {
 		'page-template',
 		'/page-template-(.+)-php/',
 		'page-parent',
-		'/category-.+/'
+		'/category-.+/',
+        '/post-.+/',
+        'type-post',
+        'status-publish',
+        'format-standard',
+        'hentry'
 	));
 	foreach($wp_classes as $i => $class) {
 		foreach($blacklist as $block) {
@@ -182,7 +185,17 @@ add_filter('body_class', function ($wp_classes, $extra_classes) {
 		}
 	}
     return array_merge($wp_classes, (array) $extra_classes);
-}, 10, 2);
+}
+
+/**
+ * Clean up body classes
+ */
+ add_filter('body_class', 'mindad_clean_classes', 10, 2);
+
+/**
+ * Clean up post classes
+ */
+add_filter('post_class', 'mindad_clean_classes', 10, 2);
 
 /**
  * Fix comment reply function if YOAST is installed.
