@@ -31,7 +31,7 @@ add_action('wp_enqueue_scripts', function() {
  */
 add_action('wp_head', function() {
     $accent_color = apply_filters('mindad_accent_color', '#56a49f');
-    ?><style type="text/css">* {--accent-color: <?= $accent_color ?>;}</style><?php
+    ?><style type="text/css">:root {--accent-color: <?= $accent_color ?>;}</style><?php
 }, 10);
 
 /**
@@ -48,9 +48,55 @@ if (apply_filters('mindad_clean_head', true)) {
  */
 if (apply_filters('mindad_add_readmore_link', true)) {
     add_filter('the_excerpt', function($excerpt) {
-    	$link = '<a href="' . get_permalink() . '"><small>' . __('Read more &raquo;', 'mindad') . '</small></a>';
+        $permalink = apply_filters('the_permalink', get_permalink(), 0);
+    	$link = '<a href="' . $permalink . '" class="read-more"><small>' . __('Read more &raquo;', 'mindad') . '</small></a>';
     	return str_replace('</p>', ' ' . $link . '</p>', $excerpt);
     }, 15, 1);
+}
+
+/**
+ * Display scheduled posts for the admin user
+ */
+if (apply_filters('mindad_display_scheduled_for_admin', true)) {
+    add_filter('the_title', function($title, $post_id) {
+        if (current_user_can('administrator')) {
+            if (get_post_status($post_id) == 'future') {
+                $format = apply_filters('future_title_format', __('Scheduled: %s'), $post);
+                $title = sprintf($format, $title);
+            }
+        }
+        return $title;
+    }, 15, 2);
+}
+
+/**
+ * Display post status as badges rather than plain text
+ */
+if (apply_filters('mindad_display_post_status_as_badges', true)) {
+    if (!is_admin()) {
+        $filter = function($format) {
+            // Prepend badge tag
+            $format = '<span class="badge">' . $format;
+
+            // Replace colon with closin tag
+            $pos = strpos($format, ':');
+            $format = substr($format, 0, $pos) . '</span>' . substr($format, $pos + 1);
+
+            return $format;
+        };
+        add_filter('protected_title_format', $filter, 10, 1);
+        add_filter('private_title_format', $filter, 10, 1);
+        add_filter('future_title_format', $filter, 10, 1);
+    }
+}
+
+/**
+ * Deactivate Gutenberg styles
+ */
+if (apply_filters('mindad_disable_gutenberg_styles', true)) {
+    add_action('wp_enqueue_scripts', function() {
+        wp_dequeue_style('wp-core-blocks');
+    }, 99);
 }
 
 /**
@@ -109,6 +155,34 @@ if (apply_filters('mindad_disable_embed', true)) {
         remove_filter('pre_oembed_result', 'wp_filter_pre_oembed_result', 10);
     }, 50);
 }
+
+/**
+ * Clean up body classes using a blacklist
+ */
+add_filter('body_class', function ($wp_classes, $extra_classes) {
+	$blacklist = apply_filters('mindad_body_class_blacklist', array(
+		'post-template-default',
+		'single-format-standard',
+		'wp-featherlight-captions',
+		'/postid-.+/',
+		'page-template-default',
+		'/page-id-.+/',
+		'page-template',
+		'/page-template-(.+)-php/',
+		'page-parent',
+		'/category-.+/'
+	));
+	foreach($wp_classes as $i => $class) {
+		foreach($blacklist as $block) {
+			if ($class == $block) {
+				unset($wp_classes[$i]);
+			} else if (substr($block, 0, 1) == '/' && preg_match($block, $class)) {
+				unset($wp_classes[$i]);
+			}
+		}
+	}
+    return array_merge($wp_classes, (array) $extra_classes);
+}, 10, 2);
 
 /**
  * Fix comment reply function if YOAST is installed.
