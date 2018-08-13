@@ -11,8 +11,9 @@ The theme omits a lot of functions and focuses on providing a clean, speedy expe
 - No embeds
 - No JavaScript
 - No copyright
+- No images/icons
 
-A demo of the theme is available [here](https://mindad.ch).
+A demo of the theme is available [here](https://mindad.ch/).
 
 ## Installation (required)
 If you wish to use this theme on your own website follow the steps below.
@@ -33,15 +34,11 @@ If you wish to use this theme on your own website follow the steps below.
 ### Search Page
 Go to pages and create a new empty search page, then on the right-hand side select _Template > Search_. Publish it and link to it as you wish.
 
+### Header Menu
+Go to _Appeareance > Menus_ and create a new menu for the header; add all links you need and make sure the _Display location_ is set to _Header menu_. The menu will be hidden by default and is accessible via a menu button which is displayed next to the tag line in the header. On mobile devices the button is displayed in the bottom right hand corner to improve [Thumb Reachability](http://uxmovement.com/mobile/why-mobile-menus-belong-at-the-bottom-of-the-screen/) according to the floating action button standard of the material design guide.
+
 ### Footer Menu
 Go to _Appeareance > Menus_ and create a new menu for the footer; add all links you need and make sure the _Display location_ is set to _Footer menu_
-
-### Google Tag Manager
-The theme supports tracking via Google Tag Manager, simply add the following configuration with your custom code to your `wp-config.php` file to activate tracking:
-
-```
-define('GOOGLE_TAG_MANAGER', 'YOUR-CODE-HERE');
-```
 
 ### Favicons
 If you wish to use a favicon for your site, simply follow the [instructions of WordPress](https://codex.wordpress.org/Creating_a_Favicon) itself or navigate directly to _Appearance > Customize > Site Identity > Site Icon_ if you're familiar with the process.
@@ -73,7 +70,7 @@ Simply copy any of these files to your child themes root folder and adjust as ne
 Use these filters to disable certain WordPress theme functions that are active by default.
 
 - Change the accent color of the theme (default is `#56a49f`):
-  `add_filter('mindad_accent_color', function() { return '#123456'})`
+  `add_filter('mindad_accent_color', function() { return '#123456'; })`
 - Disable the cleaning of the HTML head:
   `add_filter('mindad_clean_head', '__return_false');`
 - Disable the read-more link after excerpts:
