@@ -61,6 +61,8 @@ The mindad WordPress theme comes with some standard templates that you can overr
 - `searchform.php` — displays the search form
 - `home.php` — post page template that shows the blog archives
 - `category.php` — shows the blog archives for the current category
+- `tag.php` — shows the blog archives for the current tag
+- `comments.php` — shows the comment form and lists comments
 - `front-page.php` — Homepage template that shows the latest blog post
 - `404.php` — shows the good old 404 error page with a surprise
 
