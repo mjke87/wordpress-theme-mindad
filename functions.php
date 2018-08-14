@@ -1,9 +1,14 @@
 <?php
 
-if ( ! isset( $content_width ) ) $content_width = 720;
+/**
+ * Declare content width
+ */
+if (!isset($content_width)) {
+    $content_width = 720;
+}
 
 /**
- * Declare title support
+ * Declare theme supports
  */
 add_action('after_setup_theme', function() {
     add_theme_support('title-tag');
@@ -34,6 +39,10 @@ add_post_type_support('page', 'excerpt');
  */
 add_action('wp_enqueue_scripts', function() {
     wp_enqueue_style('mindad-main', get_template_directory_uri() . '/assets/css/main.css');
+
+    if (is_singular() && comments_open()) {
+        wp_enqueue_script('comment-reply');
+    }
 });
 
 /**
