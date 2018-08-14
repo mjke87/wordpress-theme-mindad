@@ -42,6 +42,13 @@
 					<?php next_post_link('%link'); ?>
 				</p>
 			<?php endif; ?>
+
+			<?php if (has_term(0, 'post_tag')) : ?>
+				<p>
+					<strong><?php _e('Tags', 'mindad'); ?>: </strong><br/>
+					<?php the_tags(''); ?>
+				</p>
+			<?php endif; ?>
 		</div>
 
 		<?php endwhile; else: ?>
@@ -50,6 +57,6 @@
 
 		<?php if (comments_open()) : ?>
 			<?php comments_template(); ?>
-		<?php endif; ?>
+        <?php endif; ?>
 
 <?php get_footer(); ?>
