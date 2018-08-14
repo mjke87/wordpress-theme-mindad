@@ -537,6 +537,10 @@ hr {
         float: right;
         margin-left: 20px;
     }
+	img.aligncenter {
+	    margin-left: 50%;
+		transform: translateX(-50%)
+	}
     p {
         line-height: 1.5em;
         margin: .7em 0 0 0;
@@ -762,6 +766,17 @@ hr {
     #reply-title #cancel-comment-reply-link {
         display: inline-block;
         color: #666666;
+        border: 1px solid #ccc;
+        padding: 4px;
+        float: right;
+        font-size: 0.75em;
+        font-weight: 400;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+    }
+    #reply-title #cancel-comment-reply-link:hover {
+        opacity: 1;
+        transition: opacity 0.3s;
     }
     #respond form p label:first-child {
         width: 30%;
@@ -857,6 +872,15 @@ hr {
         background: #dddddd;
         padding: 3px;
         opacity: 0.9;
+    }
+    /* restrict max width to content width */
+    .size-auto,
+    .size-full,
+    .size-large,
+    .size-medium,
+    .size-thumbnail {
+    	max-width: 100%;
+    	height: auto;
     }
 }
 
@@ -1117,6 +1141,10 @@ hr {
         display: none;
     }
 }
+
+/* Theme rule styles - needed in theme css for WP compliance */
+.wp-caption,.wp-caption-text,.screen-reader-text,.gallery-caption,.bypostauthor {}
+
 /* Plugins styles */
 .featherlight button {
     min-width: auto;
