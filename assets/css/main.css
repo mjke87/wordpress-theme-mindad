@@ -538,17 +538,17 @@ hr {
         box-shadow: 1px 1px 15px 5px #777777;
         transition: box-shadow 0.3s;
     }
-    img a {
-        border: 0;
-    }
+    .wp-block-image.alignleft,
     img.alignleft {
         float: left;
         margin-right: 20px;
     }
+    .wp-block-image.alignright,
     img.alignright {
         float: right;
         margin-left: 20px;
     }
+    .wp-block-image.aligncenter,
 	img.aligncenter {
 	    margin-left: 50%;
 		transform: translateX(-50%)
@@ -912,6 +912,10 @@ hr {
     .size-thumbnail {
     	max-width: 100%;
     	height: auto;
+    }
+    img > a:link,
+    .wp-block-image > a:link {
+        border: 0;
     }
 }
 
