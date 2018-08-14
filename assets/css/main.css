@@ -690,6 +690,10 @@ hr {
         margin-top: 15px;
         border-top: 1px solid #efefef;
     }
+    .post-pagination a {
+        color: #666;
+        border-bottom: 1px solid #ccc;
+    }
     /* "see all posts" at bottom of home page */
     .all_posts {
         font-size: 1.25em;
@@ -1056,6 +1060,10 @@ hr {
         line-height: 1em;
         padding: .1;
     }
+    .post-pagination {
+        text-align: left;
+        font-size: 1.5em;
+    }
 }
 
 /* for iPhone-sized devices */
@@ -1140,9 +1148,9 @@ hr {
         border-radius: 50%;
         box-shadow: 1px 1px 5px 1px #cccccc;
         background: var(--accent-color);
-        -webkit-opacity: 0.6;
-        -moz-opacity: 0.6;
-        opacity: 0.6;
+        -webkit-opacity: 0.8;
+        -moz-opacity: 0.8;
+        opacity: 0.8;
     }
     .header-menu .menu-line {
         background: #ffffff;
