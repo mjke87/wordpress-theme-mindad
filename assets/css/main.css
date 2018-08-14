@@ -538,17 +538,17 @@ hr {
         box-shadow: 1px 1px 15px 5px #777777;
         transition: box-shadow 0.3s;
     }
-    .wp-block-image.alignleft,
+    .wp-block-image.alignleft img,
     img.alignleft {
         float: left;
         margin-right: 20px;
     }
-    .wp-block-image.alignright,
+    .wp-block-image.alignright img,
     img.alignright {
         float: right;
         margin-left: 20px;
     }
-    .wp-block-image.aligncenter,
+    .wp-block-image.aligncenter img,
 	img.aligncenter {
 	    margin-left: 50%;
 		transform: translateX(-50%)
