@@ -1,5 +1,15 @@
 <?php
 
+if ( ! isset( $content_width ) ) $content_width = 720;
+
+/**
+ * Declare title support
+ */
+add_action('after_setup_theme', function() {
+    add_theme_support('title-tag');
+	add_theme_support('automatic-feed-links');
+});
+
 /**
  * Register header menu
  */
@@ -31,7 +41,7 @@ add_action('wp_enqueue_scripts', function() {
  */
 add_action('wp_head', function() {
     $accent_color = apply_filters('mindad_accent_color', '#56a49f');
-    ?><style type="text/css">:root {--accent-color: <?= $accent_color ?>;}</style><?php
+    ?><style type="text/css">:root {--accent-color: <?php echo $accent_color ?>;}</style><?php
 }, 10);
 
 /**

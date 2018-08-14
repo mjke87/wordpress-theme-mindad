@@ -11,16 +11,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-
-	<title><?php if ( is_single() ) { ?> <?php } ?><?php wp_title(':',true,'right'); ?> <?php bloginfo('name'); ?></title>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-
 	<?php wp_head(); ?>
-
 </head>
+
 <body <?php body_class(); ?>>
 
     <?php do_action('body_open'); ?>
