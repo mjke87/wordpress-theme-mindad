@@ -36,8 +36,8 @@
 		cried out to me, the land I had lost with my childhood&mdash;<br/>
 		and I stopped, wounded by the wandering scent.</p>
 
-		<p><small><em>&mdash; Lost In The Forest by Pablo Neruda</em></small></p>
-		', 'mindad'); ?>
+		<p><small><em>&mdash; Lost In The Forest by Pablo Neruda</em></small></p>'
+		, 'mindad'); ?>
 
 	</article>
 
