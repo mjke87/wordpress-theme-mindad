@@ -192,7 +192,8 @@ function mindad_clean_classes($wp_classes, $extra_classes) {
         'type-post',
         'status-publish',
         'format-standard',
-        'hentry'
+        'hentry',
+        'logged-in',
 	));
 	foreach($wp_classes as $i => $class) {
 		foreach($blacklist as $block) {
