@@ -134,6 +134,8 @@ button:focus,
 textarea:focus,
 textarea:active {
     box-shadow: 1px 1px 5px 0 #cccccc;
+    -webkit-opacity: 0.8;
+    -moz-opacity: 0.8;
     opacity: 0.8;
     transition: all 0.3s;
 }
@@ -153,7 +155,9 @@ big {
 }
 em, i {
 	font-style: italic;
-    font-family: "Roboto Slab";
+    font-family: "Roboto Slab", serif;
+    -webkit-opacity: 0.9;
+    -moz-opacity: 0.9;
     opacity: 0.9;
     font-size: 0.99em;
 }
@@ -162,14 +166,20 @@ small em,
 small i {
     font-style: normal;
     font-family: 'Roboto Condensed', sans-serif;
+    -webkit-opacity: 0.9;
+    -moz-opacity: 0.9;
 	opacity: 0.9;
 }
 abbr {
     border-bottom: 1px dotted #cccccc;
     cursor: help;
+    -webkit-opacity: 0.9;
+    -moz-opacity: 0.9;
 	opacity: 0.9;
 }
 abbr:hover {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
 	opacity: 1;
 }
 strong {
@@ -206,7 +216,9 @@ mark:before {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+    opacity: 0.4;
     z-index: -1;
     background: #cccccc;
     background: var(--accent-color);
@@ -387,6 +399,8 @@ hr {
         margin: 0 auto;
         max-width: calc(45em - 30px);
         background: white;
+        -webkit-opacity: 1;
+        -moz-opacity: 1;
         opacity: 1;
         padding-top: 10px;
     }
@@ -442,6 +456,7 @@ hr {
         font-weight: normal;
         margin: 0.75em 0 0.5em 0;
         text-align: left;
+        line-height: 1.2em;
     }
     h2 > a {
         color: #555555;
@@ -777,10 +792,14 @@ hr {
         float: right;
         font-size: 0.75em;
         font-weight: 400;
+        -webkit-opacity: 0.7;
+        -moz-opacity: 0.7;
         opacity: 0.7;
         transition: opacity 0.3s;
     }
     #reply-title #cancel-comment-reply-link:hover {
+        -webkit-opacity: 1;
+        -moz-opacity: 1;
         opacity: 1;
         transition: opacity 0.3s;
     }
@@ -877,6 +896,8 @@ hr {
         text-transform: uppercase;
         background: #dddddd;
         padding: 3px;
+        -webkit-opacity: 0.9;
+        -moz-opacity: 0.9;
         opacity: 0.9;
     }
     /* restrict max width to content width */
@@ -941,10 +962,14 @@ hr {
         min-width: 200px;
     }
     .comment-body > .reply {
+        -webkit-opacity: 0.3;
+        -moz-opacity: 0.3;
         opacity: 0.3;
         transition: opacity 0.3s;
     }
     .comment-body:hover > .reply {
+        -webkit-opacity: 1;
+        -moz-opacity: 1;
         opacity: 1;
         transition: opacity 0.3s;
     }
@@ -1115,12 +1140,16 @@ hr {
         border-radius: 50%;
         box-shadow: 1px 1px 5px 1px #cccccc;
         background: var(--accent-color);
+        -webkit-opacity: 0.6;
+        -moz-opacity: 0.6;
         opacity: 0.6;
     }
     .header-menu .menu-line {
         background: #ffffff;
     }
     .header-menu >label:hover {
+        -webkit-opacity: 1;
+        -moz-opacity: 1;
         opacity: 1;
     }
     .header-menu >label:hover .menu-line {
