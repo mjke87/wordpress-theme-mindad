@@ -54,7 +54,7 @@
 
 	<?php if (!comments_open()) : ?>
 		<p class="nocomments">
-            <?php _e('Comments are closed.'); ?>
+            <?php _e('Comments are closed.', 'mindad'); ?>
         </p>
 	<?php endif; ?>
 

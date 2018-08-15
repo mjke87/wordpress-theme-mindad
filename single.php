@@ -30,10 +30,10 @@
 			</p>
 
 			<?php if (get_adjacent_post(false, '', true)): // check if there are older posts ?>
-			<p>
-				<strong><?php _e('Previous post', 'mindad'); ?></strong>:<br/>
-				<?php previous_post_link('%link'); ?>
-			</p>
+				<p>
+					<strong><?php _e('Previous post', 'mindad'); ?></strong>:<br/>
+					<?php previous_post_link('%link'); ?>
+				</p>
 			<?php endif; ?>
 
 			<?php if (get_adjacent_post(false, '', false)): // check if there are newer posts ?>
