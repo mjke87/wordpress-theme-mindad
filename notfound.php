@@ -7,7 +7,7 @@
  */
 ?>
 
-		<h2><?php _e('Not found', 'mindad'); ?></h2>
+		<h2><?php echo isset($title) && !empty($title) ? $title : __('Not found', 'mindad'); ?></h2>
 
 		<p>
 			<?php _e('Sorry, but you are looking for something that isn\'t here. Check back later or try searching for other content.', 'mindad'); ?>
