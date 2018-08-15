@@ -10,102 +10,142 @@ if (!isset($content_width)) {
 /**
  * Declare theme supports
  */
-add_action('after_setup_theme', function() {
-    add_theme_support('title-tag');
-	add_theme_support('automatic-feed-links');
-});
+if (!function_exists('mindad_declare_theme_supports')) {
+    function mindad_declare_theme_supports() {
+        add_theme_support('title-tag');
+    	add_theme_support('automatic-feed-links');
+    }
+}
+add_action('after_setup_theme', 'mindad_declare_theme_supports');
 
 /**
  * Register header menu
  */
-register_nav_menus(array(
-    'header_menu' => 'Header Menu'
-));
+if (!function_exists('mindad_register_header_menu')) {
+    function mindad_register_header_menu() {
+        register_nav_menus(array(
+            'header_menu' => 'Header Menu'
+        ));
+    }
+}
+add_action('after_setup_theme', 'mindad_register_header_menu');
 
 /**
  * Register footer menu
  */
-register_nav_menus(array(
-    'footer_menu' => 'Footer Menu'
-));
+if (!function_exists('mindad_register_footer_menu')) {
+    function mindad_register_footer_menu() {
+        register_nav_menus(array(
+            'footer_menu' => 'Footer Menu'
+        ));
+    }
+}
+add_action('after_setup_theme', 'mindad_register_footer_menu');
 
 /**
  * Allow excerpts for pages
  */
-add_post_type_support('page', 'excerpt');
+if (!function_exists('mindad_allow_excerpts_for_pages')) {
+    function mindad_allow_excerpts_for_pages() {
+        add_post_type_support('page', 'excerpt');
+    }
+}
+add_action('init', 'mindad_allow_excerpts_for_pages');
 
 /**
- * Enquees theme styles
+ * Enqueue theme styles
  */
-add_action('wp_enqueue_scripts', function() {
-    wp_enqueue_style('mindad-main', get_template_directory_uri() . '/assets/css/main.css');
+if (!function_exists('mindad_enqueue_theme_styles')) {
+    function mindad_enqueue_theme_styles() {
+        wp_enqueue_style('mindad-main', get_template_directory_uri() . '/assets/css/main.css');
 
-    if (is_singular() && comments_open()) {
-        wp_enqueue_script('comment-reply');
+        if (is_singular() && comments_open()) {
+            wp_enqueue_script('comment-reply');
+        }
     }
-});
+}
+add_action('wp_enqueue_scripts', 'mindad_enqueue_theme_styles');
 
 /**
  * Define accent color
  */
-add_action('wp_head', function() {
-    $accent_color = apply_filters('mindad_accent_color', '#56a49f');
-    ?><style type="text/css">:root {--accent-color: <?php echo $accent_color ?>;}</style><?php
-}, 10);
+if (!function_exists('mindad_define_accent_color')) {
+    function mindad_define_accent_color() {
+        $accent_color = apply_filters('mindad_accent_color', '#56a49f');
+        ?><style type="text/css">:root {--accent-color: <?php echo $accent_color ?>;}</style><?php
+    }
+}
+add_action('wp_head', 'mindad_define_accent_color', 10);
 
 /**
  * Clean up head
  */
-if (apply_filters('mindad_clean_head', true)) {
-    remove_action('wp_head', 'wp_generator');
-    remove_action('wp_head', 'wp_no_robots');
-    remove_action('wp_head', 'wp_shortlink_wp_head');
+if (!function_exists('mindad_clean_up_head')) {
+    function mindad_clean_up_head() {
+        remove_action('wp_head', 'wp_generator');
+        remove_action('wp_head', 'wp_no_robots');
+        remove_action('wp_head', 'wp_shortlink_wp_head');
+    }
 }
+add_action('wp_loaded', 'mindad_clean_up_head', 1);
+
 
 /**
  * Append read more link to post excerpts
  */
-if (apply_filters('mindad_add_readmore_link', true)) {
-    add_filter('the_excerpt', function($excerpt) {
+if (!function_exists('mindad_append_read_more_link')) {
+    function mindad_append_read_more_link($excerpt) {
         $permalink = apply_filters('the_permalink', get_permalink(), 0);
     	$link = '<a href="' . $permalink . '" class="read-more"><small>' . __('Read more &raquo;', 'mindad') . '</small></a>';
     	return str_replace('</p>', ' ' . $link . '</p>', $excerpt);
-    }, 15, 1);
+    }
 }
+add_filter('the_excerpt', 'mindad_append_read_more_link', 15, 1);
 
 /**
  * Change title of scheduled posts for the admin user
  */
-if (apply_filters('mindad_display_scheduled_for_admin', true)) {
-    add_filter('the_title', function($title, $post_id) {
+if (!function_exists('mindad_display_scheduled_for_admin')) {
+    function mindad_display_scheduled_for_admin($title, $post_id) {
         if (current_user_can('administrator')) {
             if (get_post_status($post_id) == 'future') {
-                $format = apply_filters('future_title_format', __('Scheduled: %s'), $post);
+                $format = apply_filters('future_title_format', __('Scheduled: %s', 'mindad'), $post);
                 $title = sprintf($format, $title);
             }
         }
         return $title;
-    }, 15, 2);
+    }
+}
+add_filter('the_title', 'mindad_display_scheduled_for_admin', 15, 2);
+
+
+/**
+ * Transform post status to badges rather than plain text
+ */
+if (!function_exists('mindad_transform_post_status_to_badge')) {
+    function mindad_transform_post_status_to_badge($format) {
+        // Prepend badge tag
+        $format = '<span class="badge">' . $format;
+        // Replace colon with closin tag
+        $pos = strpos($format, ':');
+        $format = substr($format, 0, $pos) . '</span>' . substr($format, $pos + 1);
+        return $format;
+    }
 }
 
 /**
  * Display post status as badges rather than plain text
  */
-if (apply_filters('mindad_display_post_status_as_badges', true)) {
-    if (!is_admin()) {
-        $filter = function($format) {
-            // Prepend badge tag
-            $format = '<span class="badge">' . $format;
-            // Replace colon with closin tag
-            $pos = strpos($format, ':');
-            $format = substr($format, 0, $pos) . '</span>' . substr($format, $pos + 1);
-            return $format;
-        };
-        add_filter('protected_title_format', $filter, 10, 1);
-        add_filter('private_title_format', $filter, 10, 1);
-        add_filter('future_title_format', $filter, 10, 1);
+if (!function_exists('mindad_display_post_status_as_badges')) {
+    function mindad_display_post_status_as_badges() {
+        if (!is_admin()) {
+            add_filter('protected_title_format', 'mindad_transform_post_status_to_badge', 10, 1);
+            add_filter('private_title_format', 'mindad_transform_post_status_to_badge', 10, 1);
+            add_filter('future_title_format', 'mindad_transform_post_status_to_badge', 10, 1);
+        }
     }
 }
+add_action('init', 'mindad_display_post_status_as_badges');
 
 /**
  * Deactivate Gutenberg styles
