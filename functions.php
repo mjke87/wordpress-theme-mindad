@@ -67,6 +67,16 @@ if (!function_exists('mindad_enqueue_theme_styles')) {
 add_action('wp_enqueue_scripts', 'mindad_enqueue_theme_styles');
 
 /**
+ * Registers an editor stylesheet for the theme
+ */
+if (!function_exists('mindad_add_editor_styles')) {
+    function mindad_add_editor_styles() {
+        add_editor_style(get_template_directory_uri() . '/assets/css/main.css');
+    }
+}
+add_action( 'admin_init', 'mindad_add_editor_styles' );
+
+/**
  * Define accent color
  */
 if (!function_exists('mindad_define_accent_color')) {
