@@ -773,10 +773,11 @@ hr {
         width: 90%;
         width: calc(100% - 50px);
         float: right;
+        line-height: 1.2em;
     }
     .years .months .posts > li {
         display: inline-block;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
         width: 100%;
     }
     /* post comments */
