@@ -30,8 +30,8 @@
 
     $ordered_posts = array();
     foreach ($all_posts as $single) {
-      $year  = mysql2date('Y', $single->post_date);
-      $month = mysql2date('F', $single->post_date);
+      $year  = date_i18n('Y', strtotime($single->post_date));
+      $month = date_i18n('F', strtotime($single->post_date));
       $ordered_posts[$year][$month][] = $single;
     }
 	?>
@@ -46,7 +46,7 @@
         <ul class="months">
         <?php foreach ($months as $month => $posts ) : ?>
           <li>
-			<h4><?php _e($month, 'mindad'); ?></h4>
+			<h4><?php echo $month; ?></h4>
 
             <ul class="posts">
 			  <?php $last_day = 1; ?>
