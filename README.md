@@ -72,10 +72,10 @@ The mindad WordPress theme comes with some standard templates that you can overr
 
 Simply copy any of these files to your child themes root folder and adjust as needed. Make sure to preserve the same file name, otherwise the template will not be overridden.
 
-## Functions
+### Functions
 All theme functions are pluggable, which means that you can override them in your child theme to change their behavior. Or you can remove the function callbacks from the WordPress action and filter hooks, to disable certain features completely.
 
-### Examples:
+**Examples**:
 - Do not display post status as badges — `remove_action('init', 'mindad_display_post_status_as_badges');`
 - Do not append the read more link — `remove_filter('the_excerpt', 'mindad_append_read_more_link', 15, 1);`
 - Do not display scheduled posts for admin users — `remove_filter('the_title', 'mindad_display_scheduled_for_admin', 15, 2);`
