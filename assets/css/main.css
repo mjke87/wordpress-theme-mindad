@@ -161,6 +161,10 @@ em, i {
     opacity: 0.9;
     font-size: 0.99em;
 }
+blockquote > p:only-of-type {
+    display: inline;
+}
+blockquote cite,
 blockquote em,
 small em,
 small i {
@@ -169,6 +173,13 @@ small i {
     -webkit-opacity: 0.9;
     -moz-opacity: 0.9;
 	opacity: 0.9;
+}
+blockquote cite a {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+blockquote cite:before {
+    content: " — ";
+    display: inline;
 }
 abbr {
     border-bottom: 1px dotted #cccccc;
