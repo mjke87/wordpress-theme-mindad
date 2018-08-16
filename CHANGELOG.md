@@ -1,3 +1,11 @@
+## 1.0.5 (2018-08-16)
+
+* Improve header menu with better animations, positioning and responsive behavior
+* Move menu trigger to be able to control menu lines with checked state
+* Change theme and demo URLs to new demo site
+* Make search hint translatable
+
+
 ## 1.0.4 (2018-08-15)
 
 * Add changelog to track history
