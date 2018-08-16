@@ -31,10 +31,10 @@
         <?php if (has_nav_menu('header_menu')) : ?>
         <nav class="header-menu">
             <label>
-                <span class="menu-line"></span>
-                <span class="menu-line"></span>
-                <span class="menu-line"></span>
                 <input type="checkbox" class="menu-trigger" />
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
                 <?php wp_nav_menu('header_menu'); ?>
             </label>
         </nav>
