@@ -28,7 +28,7 @@ Template Name: Search Page
 			</div>
 
 			<p>
-				<small><em>It is recommend to use at least 3 characters for your search.</em></small>
+				<small><em><?php __('It is recommend to use at least 3 characters for your search.', 'mindad'); ?></em></small>
 			</p>
 
 		</article>
