@@ -17,7 +17,7 @@ Other hand, many non-essential functions are omitted:
 - No images & icons
 - No copyright
 
-A demo of the theme is available [here](https://mindad.ch/).
+A demo of the theme is available [here](https://demo.mindad.ch/).
 
 ## Installation (required)
 If you wish to use this theme on your own website follow the steps below.
