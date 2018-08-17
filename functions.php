@@ -64,7 +64,7 @@ if (!function_exists('mindad_enqueue_theme_styles')) {
         }
     }
 }
-add_action('wp_enqueue_scripts', 'mindad_enqueue_theme_styles');
+add_action('wp_enqueue_scripts', 'mindad_enqueue_theme_styles', 10);
 
 /**
  * Registers an editor stylesheet for the theme
@@ -74,18 +74,44 @@ if (!function_exists('mindad_add_editor_styles')) {
         add_editor_style(get_template_directory_uri() . '/assets/css/main.css');
     }
 }
-add_action( 'admin_init', 'mindad_add_editor_styles' );
+add_action('admin_init', 'mindad_add_editor_styles');
 
 /**
- * Define accent color
+ * Define inline styles for custom theme colors
  */
 if (!function_exists('mindad_define_accent_color')) {
     function mindad_define_accent_color() {
-        $accent_color = apply_filters('mindad_accent_color', '#56a49f');
-        ?><style type="text/css">:root {--accent-color: <?php echo $accent_color ?>;}</style><?php
+        $accent_color = get_theme_mod('mindad_accent_color', '#56a49f');
+		$background_color = get_theme_mod('mindad_background_color', '#ffffff');
+
+        $inline_styles = ":root {--accent-color: $accent_color; --background-color: $background_color; }";
+		wp_add_inline_style('mindad-main', $inline_styles);
     }
 }
-add_action('wp_head', 'mindad_define_accent_color', 10);
+add_action('wp_enqueue_scripts', 'mindad_define_accent_color', 15);
+
+/**
+ * Make the header sticky
+ */
+if (!function_exists('mindad_sticky_header')) {
+    function mindad_sticky_header($wp_classes, $extra_classes) {
+        if (get_theme_mod('mindad_sticky_header', false)) {
+            $wp_classes[] = 'sticky';
+        }
+        return $wp_classes;
+    }
+}
+add_filter('body_class', 'mindad_sticky_header', 10, 2);
+
+/**
+ * Register customizer options
+ */
+if (!function_exists('mindad_customize_register')) {
+	function mindad_customize_register( $wp_customize ) {
+        require_once(dirname(__FILE__) . '/inc/customizer.php');
+	}
+}
+add_action('customize_register', 'mindad_customize_register');
 
 /**
  * Append read more link to post excerpts
