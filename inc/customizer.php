@@ -12,7 +12,7 @@ $wp_customize->add_setting('mindad_accent_color', array(
 ));
 $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'mindad_accent_color', array(
     'label'       => __('Accent Color', 'mindad'),
-    'description' => __('Give your site a kick with a discernible accent color.', 'mindad'),
+    'description' => __('Give your site an extra kick with a discernible accent color.', 'mindad'),
     'section'     => 'colors',
     'settings'    => 'mindad_accent_color',
 )));
@@ -38,6 +38,7 @@ $wp_customize->add_section('header_settings', array(
     'priority'    => 160,
     'capability'  => 'edit_theme_options'
 ));
+
 // sticky header
 $wp_customize->add_setting('mindad_sticky_header', array('default'   => '#123123'));
 $wp_customize->add_control('mindad_sticky_header', array(

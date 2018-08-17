@@ -10,7 +10,6 @@ The theme focuses on providing a clean, speedy experience with the following sim
 - Compatible with standard Gutenberg blocks
 
 Other hand, many non-essential functions are omitted:
-- No UI
 - No sidebar
 - No widgets
 - No permanent search box
@@ -25,30 +24,35 @@ If you wish to use this theme on your own website follow the steps below.
 1. Install the theme as usual via the WordPress Backend or download manually install it as follows:
  _Appeareance > Themes > Add Themes > Uploads Themes_
 2. Navigate to _Appeareance > Themes_ then activate the _mindad_ WordPress theme
-3. Go to _Settings > General_ and set a nice site title and tagline; the theme will display these in the header on every site
-4. Go to _Pages_ and create two new empty pages
-   1. A homepage
-   2. A blog archives page
-5. Go to _Settings > Reading_ and make sure the option _Your homepage displays_ is set to _A static page_
-   1. As _Homepage_ choose the previously created homepage; the theme will display the latest blog post on the front page
-   2. As _Posts Page_ choose the previously created archives page; the theme will display a list of all blog posts sorted by year and month on this page
-
-You're all set.
 
 == Configuration ==
-All of the below is optional, but recommended.
+Most of the theme configuration can be done in the theme customizer. It's all optional, but recommended to have at least a look. First of, in your WordPress backend head over to _Appearance > Customize_ to load up the theme customizer.
 
-= Search Page =
-Go to pages and create a new empty search page, then on the right-hand side select _Template > Search_. Publish it and link to it as you wish.
+= Site Identity
+In the site identity section it is strongly recommended to set a nice _Site Title_ and _Tagline_, as the theme will display these in the header on *every* site.
 
-= Header Menu =
-Go to _Appeareance > Menus_ and create a new menu for the header; add all links you need and make sure the _Display location_ is set to _Header menu_. The menu will be hidden by default and is accessible via a menu button which is displayed next to the tag line in the header. On mobile devices the button is displayed in the bottom right hand corner to improve [Thumb Reachability](http://uxmovement.com/mobile/why-mobile-menus-belong-at-the-bottom-of-the-screen/) according to the floating action button standard of the material design guide.
+If you wish to use a favicon for your site, you can upload a custom image as a _Site Icon_ right here as well. For further information about favicons check the [instructions from WordPress](https://codex.wordpress.org/Creating_a_Favicon).
 
-= Footer Menu =
-Go to _Appeareance > Menus_ and create a new menu for the footer; add all links you need and make sure the _Display location_ is set to _Footer menu_.
+= Colors
+In the color section you can change some of the theme colors using the theme customizer.
 
-= Favicons =
-If you wish to use a favicon for your site, simply follow the [instructions of WordPress](https://codex.wordpress.org/Creating_a_Favicon) itself or navigate directly to _Appearance > Customize > Site Identity > Site Icon_ if you're familiar with the process.
+= Menus
+In the menus section you have the possibility to create menu and have them displayed in the header and/or footer. Both menus are optional, if no menu is assigned to a menu slot, nothing will be displayed by the theme.
+
+Note that the header menu will be hidden by default and is accessible via a menu button which is displayed next to the tag line in the header. On mobile devices the button is displayed in the bottom right hand corner to improve [Thumb Reachability](http://uxmovement.com/mobile/why-mobile-menus-belong-at-the-bottom-of-the-screen/) according to the floating action button standard of the material design guide. Furthermore, the header menu works entirely without JavaScript, which makes it possible for the theme to leave out any _*.js_ files at all.
+
+= Homepage Settings
+Please follow this instructions carefully to ensure a correct behavior of your website:
+
+1. Make sure the option _Your homepage displays_ is set to _A static page_.
+2. In the _Homepage_ settings click new page, set a title (e.g. _Home_) and click add to create a new empty page; now select this page, or choose any previously created homepage. The theme will display the latest blog post prominently on the front page.
+3. In the _Posts Page_ settings click new page, set a title (e.g. _Archives_) and click add to create a new empty page; now select this page, or choose any previously created archives page. The theme will display a list of all blog posts sorted by year and month on this page.
+
+= Header
+Allows you to make the header sticky or non-sticky. Simple as that. On thing worth mentioning though, is that the header will always be non-sticky on mobile devices, as the vertical space is quite limited.
+
+= Search Page
+The search page cannot be configured in the theme customizer, but it's fairly easy. Simply go to _Pages_ and create a new empty search page, then on the right-hand side select _Page Attributes > Template > Search Page_. Publish the page and link to it as you wish, for example in your menu.
 
 == Customization ==
 All of the below is optional. Be aware that further customization of this WordPress theme requires a certain level of programming.
@@ -84,7 +88,11 @@ All theme functions are pluggable, which means that you can override them in you
 - Do not display scheduled posts for admin users — `remove_filter('the_title', 'mindad_display_scheduled_for_admin', 15, 2);`
 
 = Filters =
-Use these filters to control certain WordPress theme functions that are active by default.
+Use these filters as a more permanent alternative to using the theme customizer.
 
 - Change the accent color of the theme (default is `#56a49f`):
-  `add_filter('mindad_accent_color', function() { return '#123456'; })`
+  `add_filter('theme_mod_mindad_accent_color', function() { return '#123456'; })`
+- Change the background color of the theme (default is `#ffffff`):
+  `add_filter('theme_mod_mindad_background_color', function() { return '#123456'; })`
+- Make the header always sticky (default is `false`):
+  `add_filter('theme_mod_mindad_sticky_header', '__return_true')`
