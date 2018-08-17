@@ -1,3 +1,11 @@
+## 1.0.6 (2018-08-17)
+
+* Update the readme files with instructions about the new theme customizer
+* Improve sticky header styling and responsive behavior
+* Add theme customizer sections, settings and controls
+* Improve theme configuration using the theme customizer
+* Introduce background color CSS variable
+
 ## 1.0.5 (2018-08-16)
 
 * Improve header menu with better animations, positioning and responsive behavior
