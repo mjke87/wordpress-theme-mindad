@@ -71,6 +71,7 @@ add_action('wp_enqueue_scripts', 'mindad_enqueue_theme_styles', 10);
  */
 if (!function_exists('mindad_add_editor_styles')) {
     function mindad_add_editor_styles() {
+        // TODO improve or remove
         add_editor_style(get_template_directory_uri() . '/assets/css/main.css');
     }
 }
@@ -79,8 +80,8 @@ add_action('admin_init', 'mindad_add_editor_styles');
 /**
  * Define inline styles for custom theme colors
  */
-if (!function_exists('mindad_define_accent_color')) {
-    function mindad_define_accent_color() {
+if (!function_exists('mindad_define_theme_colors')) {
+    function mindad_define_theme_colors() {
         $accent_color = get_theme_mod('mindad_accent_color', '#56a49f');
 		$background_color = get_theme_mod('mindad_background_color', '#ffffff');
 
@@ -88,7 +89,7 @@ if (!function_exists('mindad_define_accent_color')) {
 		wp_add_inline_style('mindad-main', $inline_styles);
     }
 }
-add_action('wp_enqueue_scripts', 'mindad_define_accent_color', 15);
+add_action('wp_enqueue_scripts', 'mindad_define_theme_colors', 15);
 
 /**
  * Make the header sticky
@@ -174,5 +175,19 @@ add_action('init', 'mindad_display_post_status_as_badges');
  * Fix comment reply function if YOAST is installed.
  */
 add_filter('wpseo_remove_reply_to_com', '__return_false');
+
+/*
+ * Display search page template in page table
+ */
+if (!function_exists('mindad_display_page_template')) {
+    function mindad_display_page_template($post_states, $post) {
+        $page_template = get_page_template_slug($post->ID);
+        if ($page_template == 'searchpage.php') {
+            $post_states['page_template'] = __('Search Page', 'mindad');
+        }
+        return $post_states;
+    }
+}
+add_filter('display_post_states', 'mindad_display_page_template', 10, 2);
 
 ?>
