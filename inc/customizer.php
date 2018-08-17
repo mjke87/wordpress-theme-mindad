@@ -40,7 +40,10 @@ $wp_customize->add_section('header_settings', array(
 ));
 
 // sticky header
-$wp_customize->add_setting('mindad_sticky_header', array('default'   => '#123123'));
+$wp_customize->add_setting('mindad_sticky_header', array(
+    'default'   => false,
+    'sanitize_callback' => 'absint'
+));
 $wp_customize->add_control('mindad_sticky_header', array(
     'type'        => 'checkbox',
     'label'       => __('Sticky header', 'mindad'),
