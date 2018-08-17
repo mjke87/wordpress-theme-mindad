@@ -89,6 +89,8 @@ html, body {
 }
 body {
     line-height: 1;
+    background: #ffffff;
+	background: var(--background-color);
 }
 ol, ul {
     list-style: none;
@@ -295,6 +297,7 @@ hr {
         height: 50px;
         cursor: pointer;
         background: #ffffff;
+		background: var(--background-color);
     }
     .header-menu > label:hover {
         border-color: #777777;
@@ -409,6 +412,7 @@ hr {
         display: block;
         height: 2px;
         width: 0;
+		background: #cccccc;
         background: var(--accent-color);
         transition: width 0.2s;
         margin: 0 auto;
@@ -439,7 +443,8 @@ hr {
         width: 100%;
         margin: 0 auto;
         max-width: calc(45em - 30px);
-        background: white;
+        background: #ffffff;
+        background: var(--background_color);
         -webkit-opacity: 1;
         -moz-opacity: 1;
         opacity: 1;
@@ -1018,7 +1023,8 @@ hr {
     	position: absolute;
 	    height: 50px;
     	width: 60px;
-	    background: white;
+	    background: #ffffff;
+		background: var(--background-color);
     	left: -73px;
 	    top: 15px;
     	border-top-left-radius: 50%;
@@ -1234,6 +1240,7 @@ hr {
     .header-menu > label {
         border-radius: 50%;
         box-shadow: 1px 1px 5px 1px #cccccc;
+		background: transparent;
         background: var(--accent-color);
         -webkit-opacity: 0.8;
         -moz-opacity: 0.8;
