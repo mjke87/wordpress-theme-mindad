@@ -436,34 +436,6 @@ hr {
         padding-bottom: 75px;
         position: relative;
     }
-    /* Sticky header */
-    .sticky .top {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        margin: 0 auto;
-        max-width: calc(45em - 30px);
-        background: #ffffff;
-        background: var(--background_color);
-        -webkit-opacity: 1;
-        -moz-opacity: 1;
-        opacity: 1;
-        padding-top: 10px;
-    }
-    .sticky .header-menu {
-        position: fixed;
-        width: 100%;
-        max-width: 45em;
-        right: initial;
-        top: 20px;
-    }
-    .sticky .header-menu > label {
-        right: 30px;
-        position: absolute;
-    }
-    .sticky .container {
-        padding-top: 85px;
-    }
     /* blog title */
     h1 {
         font-size: 130%;
@@ -1029,15 +1001,56 @@ hr {
 	    top: 15px;
     	border-top-left-radius: 50%;
 	    border-bottom-left-radius: 50%;
-    	box-shadow: 0 0 10px 6px white;
+    	box-shadow: 0 0 10px 6px var(--background-color);
 	}
+    /* Sticky header */
+    .sticky .header-menu {
+        position: fixed;
+        width: 100%;
+        max-width: 45em;
+        right: initial;
+        top: 20px;
+    }
+    .sticky .header-menu > label {
+        right: 30px;
+        position: absolute;
+    }
 
 }
 /* only for desktop */
 @media screen and (min-width: 768px) {
+    /* Sticky header */
+    .sticky .top {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        margin: 0 auto;
+        max-width: calc(45em - 30px);
+        background: #ffffff;
+        background: var(--background-color);
+        -webkit-opacity: 1;
+        -moz-opacity: 1;
+        opacity: 1;
+        padding-top: 10px;
+    }
+    .sticky .top:after {
+        content: '';
+        display: block;
+        border: 0;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: 2px;
+        box-shadow: 0 5px 5px 0 #dddddd;
+    }
+    .sticky .container {
+        padding-top: 85px;
+    }
+    /* Inputs */
     input:not([type=submit]):not([type=checkbox]):not([type=radio]) {
         min-width: 200px;
     }
+    /* Comment form */
     .comment-body > .reply {
         -webkit-opacity: 0.3;
         -moz-opacity: 0.3;
