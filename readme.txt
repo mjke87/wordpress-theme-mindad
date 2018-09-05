@@ -8,6 +8,7 @@ The theme focuses on providing a clean, speedy experience with the following sim
 - Responsive optimized for mobile phones
 - Integrated simple post scheduler
 - Compatible with standard Gutenberg blocks
+- [High page speed rating](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fdemo.mindad.ch%2F)
 
 Other hand, many non-essential functions are omitted:
 - No sidebar
@@ -17,11 +18,11 @@ Other hand, many non-essential functions are omitted:
 - No images & icons
 - No copyright
 
-A demo of the theme is available [here](https://demo.mindad.ch/).
+A demo of the theme is available [here](https://demo.mindad.ch/). It's a bare WordPress and theme setup (no plugins), with some dummy content.
 
 == Installation ==
 If you wish to use this theme on your own website follow the steps below.
-1. Install the theme as usual via the WordPress Backend or download manually install it as follows:
+1. Install the theme as usual via the WordPress Backend or download it manually and install as follows:
  _Appeareance > Themes > Add Themes > Uploads Themes_
 2. Navigate to _Appeareance > Themes_ then activate the _mindad_ WordPress theme
 
