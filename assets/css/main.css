@@ -154,6 +154,8 @@ small {
 }
 big {
     font-size: 1.2em;
+    line-height: 1.4em;
+    color: #666666;
 }
 em, i {
 	font-style: italic;
@@ -206,6 +208,7 @@ strong {
 }
 pre, code {
     font-family: "Roboto Mono", sans-serif;
+    line-height: 1.4em;
 }
 code {
     font-size: 0.85em;
