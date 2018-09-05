@@ -1,3 +1,14 @@
+## 1.0.7 (2018-09-05)
+
+Minor styling improvements for code blocks
+Init the post in the search page template to fix a display bug
+Display already added comments even if comments are now closed
+Update readme with new demo URL and minor text improvements
+Update screenshot according the new WordPress screenshot requirements
+Fix layering problem with sticky header and remove unnecessary styles
+Avoid header menu flashing on page load on some devices
+Display search page template in page table
+
 ## 1.0.6 (2018-08-17)
 
 * Update the readme files with instructions about the new theme customizer
