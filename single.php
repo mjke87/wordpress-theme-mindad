@@ -55,7 +55,7 @@
 			<?php get_template_part('notfound'); ?>
 		<?php endif; ?>
 
-		<?php if (comments_open()) : ?>
+		<?php if (comments_open() || get_comments_number() > 1) : ?>
 			<?php comments_template(); ?>
         <?php endif; ?>
 
