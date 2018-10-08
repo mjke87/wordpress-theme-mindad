@@ -12,7 +12,7 @@
 
 	<?php
 	$get_posts = new WP_Query;
-	$posts = $get_posts->query();
+	$posts = $get_posts->query(array());
 	?>
 
 	<?php if (!empty($posts)) : ?>
