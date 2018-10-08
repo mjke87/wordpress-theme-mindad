@@ -10,15 +10,16 @@
 
 <?php get_header(); ?>
 
-	<?php $posts = get_posts(array(
-		'posts_per_page' => 1
-	)); ?>
+	<?php
+	$get_posts = new WP_Query;
+	$posts = $get_posts->query();
+	?>
 
 	<?php if (!empty($posts)) : ?>
 
 	<?php foreach ($posts as $latest) : ?>
 
-		<h2><a href="<?php echo get_permalink($latest->ID) ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s', 'mindad'), strip_tags(esc_attr(get_the_title($latest->ID)))); ?>">
+		<h2><a href="<?php echo get_permalink($latest->ID) ?>" rel="bookmark" title="<?php echo esc_attr(sprintf(__('Permanent Link to %s', 'mindad'), strip_tags(get_the_title($latest->ID)))); ?>">
 			<?php echo get_the_title($latest->ID); ?>
 		</a></h2>
 
@@ -34,7 +35,9 @@
 
 		<div class="all_posts">
 
-			<a href="<?php echo get_permalink(get_option('page_for_posts')); ?>"><?php _e('See all posts &raquo;', 'mindad'); ?></a>
+		<?php if ($archives_page = mindad_get_post_archives_page()) : ?>
+			<a href="<?php echo get_permalink($archives_page); ?>"><?php _e('See all posts &raquo;', 'mindad'); ?></a>
+		<?php endif; ?>
 
 		</div>
 
