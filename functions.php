@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Declare content width
  */
@@ -133,7 +134,7 @@ if (!function_exists('mindad_display_scheduled_for_admin')) {
     function mindad_display_scheduled_for_admin($title, $post_id) {
         if (current_user_can('administrator')) {
             if (get_post_status($post_id) == 'future') {
-                $format = apply_filters('future_title_format', __('Scheduled: %s', 'mindad'), $post);
+                $format = apply_filters('future_title_format', __('Scheduled: %s', 'mindad'), $post_id);
                 $title = sprintf($format, $title);
             }
         }
@@ -190,4 +191,22 @@ if (!function_exists('mindad_display_page_template')) {
 }
 add_filter('display_post_states', 'mindad_display_page_template', 10, 2);
 
+/*
+ * Get the archives page
+ */
+if (!function_exists('mindad_get_post_archives_page')) {
+    function mindad_get_post_archives_page() {
+        $archives_page = get_option('page_for_posts');
+        if (!$archives_page) {
+            $pages = get_pages(array(
+                'meta_key' => '_wp_page_template',
+                'meta_value' => 'home.php'
+            ));
+            foreach ($pages as $page) {
+                $archives_page = $page;
+            }
+        }
+        return $archives_page;
+    }
+}
 ?>
