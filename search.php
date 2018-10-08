@@ -20,7 +20,7 @@
 			<?php while (have_posts()) : the_post(); ?>
 
 			<article class="search-item">
-				<h4><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php printf(__('Permanent Link to %s', 'mindad'), the_title_attribute(array('echo' => false))); ?>">
+				<h4><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php esc_attr(sprintf(__('Permanent Link to %s', 'mindad'), the_title_attribute(array('echo' => false)))); ?>">
 					<?php the_title(); ?>
 				</a></h4>
 
