@@ -1,13 +1,25 @@
+## 1.0.8 (2018-10-08)
+
+* Update readme to comply with latests changes
+* Include latest-posts template on the front page from within the home template
+* Make pingback URL conditional and use WordPress configured charset
+* Escape all values of HTML attributes and home URLs
+* Add new utility function to get the archives page
+* Rename the front-page template to latest-posts
+* Respect sticky posts and the posts per page setting
+
+
 ## 1.0.7 (2018-09-05)
 
-Minor styling improvements for code blocks
-Init the post in the search page template to fix a display bug
-Display already added comments even if comments are now closed
-Update readme with new demo URL and minor text improvements
-Update screenshot according the new WordPress screenshot requirements
-Fix layering problem with sticky header and remove unnecessary styles
-Avoid header menu flashing on page load on some devices
-Display search page template in page table
+* Minor styling improvements for code blocks
+* Init the post in the search page template to fix a display bug
+* Display already added comments even if comments are now closed
+* Update readme with new demo URL and minor text improvements
+* Update screenshot according the new WordPress screenshot requirements
+* Fix layering problem with sticky header and remove unnecessary styles
+* Avoid header menu flashing on page load on some devices
+* Display search page template in page table
+
 
 ## 1.0.6 (2018-08-17)
 
@@ -16,6 +28,7 @@ Display search page template in page table
 * Add theme customizer sections, settings and controls
 * Improve theme configuration using the theme customizer
 * Introduce background color CSS variable
+
 
 ## 1.0.5 (2018-08-16)
 
