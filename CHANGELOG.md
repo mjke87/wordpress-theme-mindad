@@ -1,3 +1,9 @@
+## 1.0.9 (2018-10-08)
+
+* Fix fatal error in the latest post query
+* Add new filter to display ten search result at once
+
+
 ## 1.0.8 (2018-10-08)
 
 * Update readme to comply with latests changes
