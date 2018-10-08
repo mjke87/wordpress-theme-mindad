@@ -209,4 +209,18 @@ if (!function_exists('mindad_get_post_archives_page')) {
         return $archives_page;
     }
 }
+
+/*
+ * Change the posts per page for search queries in the frontend
+ */
+if (!function_exists('mindad_get_post_per_page_search')) {
+    function mindad_get_post_per_page_search( $query ) {
+        if (!is_admin() && $query->is_search()) {
+            $query->set( 'posts_per_page', 10);
+        }
+        return $query;
+    }
+}
+add_action('pre_get_posts', 'mindad_get_post_per_page_search', 10, 1);
+
 ?>
