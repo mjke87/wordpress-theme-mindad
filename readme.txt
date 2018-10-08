@@ -43,10 +43,10 @@ In the menus section you have the possibility to create menu and have them displ
 Note that the header menu will be hidden by default and is accessible via a menu button which is displayed next to the tag line in the header. On mobile devices the button is displayed in the bottom right hand corner to improve [Thumb Reachability](http://uxmovement.com/mobile/why-mobile-menus-belong-at-the-bottom-of-the-screen/) according to the floating action button standard of the material design guide. Furthermore, the header menu works entirely without JavaScript, which makes it possible for the theme to leave out any _*.js_ files at all.
 
 = Homepage Settings
-Please follow this instructions carefully to ensure a correct behavior of your website:
+The following instructions is the recommended configuration for your website:
 
 1. Make sure the option _Your homepage displays_ is set to _A static page_.
-2. In the _Homepage_ settings click new page, set a title (e.g. _Home_) and click add to create a new empty page; now select this page, or choose any previously created homepage. The theme will display the latest blog post prominently on the front page.
+2. In the _Homepage_ settings click new page, set a title (e.g. _Home_) and click add to create a new empty page; now select this page, or choose any previously created homepage. The theme will display the latest blog posts prominently on the front page.
 3. In the _Posts Page_ settings click new page, set a title (e.g. _Archives_) and click add to create a new empty page; now select this page, or choose any previously created archives page. The theme will display a list of all blog posts sorted by year and month on this page.
 
 = Header
@@ -75,7 +75,7 @@ The mindad WordPress theme comes with some standard templates that you can overr
 - `category.php` — shows the blog archives for the current category
 - `tag.php` — shows the blog archives for the current tag
 - `comments.php` — shows the comment form and lists comments
-- `front-page.php` — Homepage template that shows the latest blog post
+- `latests-posts.php` — Shows the latest blog posts
 - `404.php` — shows the good old 404 error page with a surprise
 
 Simply copy any of these files to your child themes root folder and adjust as needed. Make sure to preserve the same file name, otherwise the template will not be overridden.
