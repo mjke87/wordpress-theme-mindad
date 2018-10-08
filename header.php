@@ -11,9 +11,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 
 <head>
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<?php if (get_bloginfo('pingback_url') && pings_open()) : ?>
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+    <?php endif; ?>
 	<?php wp_head(); ?>
 </head>
 
@@ -23,7 +25,7 @@
 
 	<div class="container">
 		<div class="top">
-			<h1><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+			<h1><a href="<?php echo esc_url(home_url()); ?>"><?php bloginfo('name'); ?></a></h1>
 			<span id="tagline"><?php bloginfo('description'); ?></span>
 
 		</div>
