@@ -8,6 +8,17 @@
  */
 ?>
 
+<?php
+/*
+Template Name: Post Archives Page
+*/
+?>
+
+<?php if (is_front_page()) {
+	get_template_part('latest-posts');
+	return;
+} ?>
+
 <?php get_header(); ?>
 
 	<?php if (isset($title) && $title) : ?>
