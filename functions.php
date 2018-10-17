@@ -223,4 +223,7 @@ if (!function_exists('mindad_get_post_per_page_search')) {
 }
 add_action('pre_get_posts', 'mindad_get_post_per_page_search', 10, 1);
 
+// Register additinal functions
+require_once(dirname(__FILE__) . '/inc/blocks.php');
+
 ?>
